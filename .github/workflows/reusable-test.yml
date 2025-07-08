@@ -1,0 +1,74 @@
+name: Test Static, Unit, Integration, Component
+on:
+  workflow_call:
+    inputs:
+      type:
+        description: 'Type of tests that determines which changes will be tested against: "mr" | "main"'
+        required: true
+        type: string
+
+jobs:
+  test-static:
+    if: inputs.type == 'mr'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js/20.9.0
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.9.0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
+      - name: Use Eslint Cache
+        uses: actions/cache@v4
+        with:
+          path: .eslintcache
+          key: eslint-cache-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml', '**/.eslintrc.cjs') }}
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Test Static
+        run: pnpm run lint
+
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js/20.9.0
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.9.0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Run tests
+        run: pnpm run test --silent --coverage
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: runespoor-engineering/cli-eslint-disable

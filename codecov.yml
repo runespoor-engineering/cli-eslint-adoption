@@ -1,0 +1,42 @@
+comment:
+  layout: 'header, files, footer'
+  behavior: default
+  require_changes: false
+  require_base: false
+  require_head: true
+  hide_project_coverage: false
+coverage:
+  status:
+    project:
+      default:
+        target: auto
+ignore:
+  - 'coverage/**'
+  - 'dist/**'
+  - '**/[.]**'
+  - 'packages/*/test?(s)/**'
+  - '**/*.d.ts'
+  - '**/virtual:*'
+  - '**/__x00__*'
+  - "**/\x00*"
+  - 'cypress/**'
+  - 'test?(s)/**'
+  - 'test?(-*).?(c|m)[jt]s?(x)'
+  - '**/*{.,-}{test,spec}.?(c|m)[jt]s?(x)'
+  - '**/__tests__/**'
+  - '**/{karma,rollup,webpack,vite,vitest,jest,ava,babel,nyc,cypress,tsup,build}.config.*'
+  - '**/vitest.{workspace,projects}.[jt]s?(on)'
+  - '**/.{eslint,mocha,prettier}rc.{?(c|m)js,yml}'
+  - '**/mocks/**'
+  - '**/types/**'
+  - 'src/api/**/api.ts'
+  - 'src/api/**/hooks.ts'
+  - 'html/assets'
+  - 'config/jest'
+  - 'storybook-static'
+  - '**/*.stories.[jt]s?(x)'
+  - '**/*.stories.mdx'
+  - '**/constants/**'
+  - '**/__temporary__/**'
+  - '**/legacy/**'
+  - '**/pages/**'

@@ -1,0 +1,39 @@
+---
+name: Merge Request CI
+on:
+  pull_request:
+    branches:
+      - '*'
+    paths-ignore:
+      - '.cursor/**'
+      - '.prompt/**'
+      - 'drawio/**'
+      - 'excalidraw/**'
+      - '.coderabbit.yaml'
+      - '.unimportedrc.json'
+      - 'README.md'
+      - 'src/stories/**'
+      - 'changes/**'
+      - 'CHANGELOG.*'
+      - 'codecov.yml'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
+
+jobs:
+  verify:
+    uses: ./.github/workflows/reusable-pull-request-verification.yml
+
+  build:
+    needs: [verify]
+    uses: ./.github/workflows/reusable-build.yml
+    with:
+      artifact_name: ${{ vars.ARTIFACT_NAME }}
+      artifact_path: ${{ vars.ARTIFACT_PATH }}
+
+  test:
+    needs: [build]
+    uses: ./.github/workflows/reusable-test.yml
+    with:
+      type: mr

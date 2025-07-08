@@ -1,0 +1,78 @@
+{
+  "name": "@runespoorstack/eslint-cli",
+  "version": "0.0.10-beta.1",
+  "description": "The Runespoor CLI for smooth eslint integration and management.",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "private": false,
+  "scripts": {
+    "prepare": "husky install",
+    "build": "tsup",
+    "test": "vitest run",
+    "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --quiet --ignore-path .gitignore --cache --cache-strategy content --cache-location .eslintcache",
+    "lint:fix": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore --cache --cache-strategy content --cache-location .eslintcache",
+    "changelog:change": "rune change",
+    "changelog:verify": "rune verify",
+    "changelog:apply": "rune apply",
+    "unimported": "pnpm dlx unimported"
+  },
+  "bin": {
+    "lintspoor": "dist/index.js"
+  },
+  "dependencies": {
+    "@inquirer/confirm": "5.1.6",
+    "@inquirer/input": "4.1.6",
+    "@inquirer/select": "4.0.9",
+    "commander": "13.1.0"
+  },
+  "devDependencies": {
+    "@runespoorstack/changelog-manager": "0.9.3",
+    "@runespoorstack/eslint-config": "2.1.0",
+    "@rushstack/eslint-config": "3.6.8",
+    "@types/node": "20.14.8",
+    "@vitest/coverage-v8": "3.2.4",
+    "@vitest/ui": "3.2.4",
+    "eslint": "8.57.0",
+    "husky": "9.1.7",
+    "lint-staged": "15.4.3",
+    "tsup": "8.3.0",
+    "typescript": "5.4.5",
+    "vitest": "3.2.4"
+  },
+  "homepage": "https://github.com/runespoor-engineering/cli-eslint-disable/#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runespoor-engineering/cli-eslint-disable"
+  },
+  "bugs": {
+    "url": "https://github.com/runespoor-engineering/cli-eslint-disable/issues"
+  },
+  "author": {
+    "name": "BorysShulyak",
+    "email": "borysshulyak@gmail.com",
+    "url": "https://github.com/BorysShulyak"
+  },
+  "maintainers": [
+    {
+      "name": "BorysShulyak",
+      "email": "borysshulyak@gmail.com",
+      "url": "https://github.com/BorysShulyak"
+    }
+  ],
+  "keywords": [
+    "eslint",
+    "cli",
+    "javascript",
+    "linter",
+    "runespoor"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.9.0",
+    "pnpm": ">=9.15.3"
+  }
+}

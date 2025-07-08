@@ -1,0 +1,76 @@
+name: Main CI
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - '.cursor/**'
+      - '.prompt/**'
+      - 'drawio/**'
+      - 'excalidraw/**'
+      - '.coderabbit.yaml'
+      - '.unimportedrc.json'
+      - 'README.md'
+      - 'changes/**'
+      - 'CHANGELOG.*'
+      - 'codecov.yml'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.ref == 'refs/heads/main' }}
+
+jobs:
+  test:
+    uses: ./.github/workflows/reusable-test.yml
+    with:
+      type: main
+
+  changelog-apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    needs: [test]
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.ACTIONS_PTA }}
+
+      - name: Git set author name
+        run: git config --global user.name "runespoorengineering"
+
+      - name: Git set author email
+        run: git config --global user.email "runespoorengineering@gmail.com"
+
+      - name: Use Node.js/20.9.0
+        uses: actions/setup-node@v4
+        with:
+          registry-url: ${{ secrets.NPM_REGISTRY_URL }}
+          always-auth: true
+          node-version: 20.9.0
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Apply Changelog
+        run: pnpm run changelog:apply
+
+  build:
+    uses: ./.github/workflows/reusable-build.yml
+    with:
+      artifact_name: ${{ vars.ARTIFACT_NAME }}
+      artifact_path: ${{ vars.ARTIFACT_PATH }}
+
+  publish:
+    uses: ./.github/workflows/reusable-publish.yml
+    with:
+      artifact_name: ${{ vars.ARTIFACT_NAME }}
+      artifact_path: ${{ vars.ARTIFACT_PATH }}
