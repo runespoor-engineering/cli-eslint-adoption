@@ -128,17 +128,12 @@ npx husky add .husky/pre-commit "npx lintspoor check-staged"
 
 #### What You Get with This Approach
 
-✅ **Fast implementation** - I have finished this task so quickly.
-
-✅ **Correct git authorship** - I have not been assigned to each file. GitHub suggests the correct user as a reviewer on each PR.
-
-✅ **Preserved git blame** - The git blame was not broken - you can still see who wrote the original logic.
-
-✅ **Pleasant experience** - It was really a pleasure experience of adding ESLint and Prettier to an existing project.
-
-✅ **Gradual improvement** - Files get fixed naturally as part of regular development work.
-
-✅ **No team disruption** - The team can continue working normally while the codebase gradually improves.
+- **Fast implementation** - I have finished this task so quickly.
+- **Correct git authorship** - I have not been assigned to each file. GitHub suggests the correct user as a reviewer on each PR.
+- **Preserved git blame** - The git blame was not broken - you can still see who wrote the original logic.
+- **Pleasant experience** - It was really a pleasure experience of adding ESLint and Prettier to an existing project.
+- **Gradual improvement** - Files get fixed naturally as part of regular development work.
+- **No team disruption** - The team can continue working normally while the codebase gradually improves.
 
 > **How is point 3 solved?** It's really easy and you can do it right now - we've created this npm package with exactly this functionality!
 
