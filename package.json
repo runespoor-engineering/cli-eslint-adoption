@@ -24,25 +24,25 @@
     "lintspoor": "dist/index.js"
   },
   "dependencies": {
-    "commander": "13.1.0",
+    "@inquirer/confirm": "5.1.6",
     "@inquirer/input": "4.1.6",
     "@inquirer/select": "4.0.9",
-    "@inquirer/confirm": "5.1.6"
+    "commander": "13.1.0"
   },
   "devDependencies": {
     "@runespoorstack/changelog-manager": "0.9.3",
     "@runespoorstack/eslint-config": "2.1.0",
     "@rushstack/eslint-config": "3.6.8",
+    "@types/node": "20.14.8",
+    "@vitest/coverage-v8": "3.2.4",
+    "@vitest/ui": "3.2.4",
+    "eslint": "8.57.0",
+    "husky": "9.1.7",
+    "lint-staged": "15.4.3",
     "tsup": "8.3.0",
     "typescript": "5.4.5",
-    "eslint": "8.57.0",
-    "vitest": "1.4.0",
-    "@vitest/coverage-v8": "3.2.4",
-    "@types/node": "20.14.8",
-    "husky": "9.1.7",
-    "lint-staged": "15.4.3"
+    "vitest": "3.2.4"
   },
-  "peerDependencies": {},
   "homepage": "https://github.com/runespoor-engineering/cli-eslint-disable/#readme",
   "repository": {
     "type": "git",
