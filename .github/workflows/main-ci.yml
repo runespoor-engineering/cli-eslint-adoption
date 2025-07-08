@@ -88,6 +88,15 @@ jobs:
           node-version: 20.9.0
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: false
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Build
         run: pnpm run build
