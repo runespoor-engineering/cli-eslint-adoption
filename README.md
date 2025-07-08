@@ -9,7 +9,7 @@
   <a href="https://github.com/runespoor-engineering/cli-eslint-disable/blob/main/LICENSE">
     <img alt="GitHub License" src="https://img.shields.io/github/license/runespoor-engineering/cli-eslint-disable">
   </a>
-  <a href="https://github.com/runespoor-engineering/runespoorstack/issues">
+  <a href="https://github.com/runespoor-engineering/cli-eslint-disable/issues">
     <img alt="GitHub issues" src="https://img.shields.io/github/issues/runespoor-engineering/cli-eslint-disable?color=5d2de0">
   </a>
   <a href="https://www.npmjs.com/package/@runespoorstack/eslint-cli">
