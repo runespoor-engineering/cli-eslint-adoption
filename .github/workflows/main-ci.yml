@@ -64,12 +64,14 @@ jobs:
         run: pnpm run changelog:apply
 
   build:
+    needs: [changelog-apply]
     uses: ./.github/workflows/reusable-build.yml
     with:
       artifact_name: ${{ vars.ARTIFACT_NAME }}
       artifact_path: ${{ vars.ARTIFACT_PATH }}
 
   publish:
+    needs: [build]
     uses: ./.github/workflows/reusable-publish.yml
     with:
       artifact_name: ${{ vars.ARTIFACT_NAME }}
