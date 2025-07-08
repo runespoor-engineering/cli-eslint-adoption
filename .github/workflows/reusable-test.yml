@@ -17,22 +17,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.ACTIONS_PTA }}
-
-      - name: Git set author name
-        run: git config --global user.name "runespoorengineering"
-
-      - name: Git set author email
-        run: git config --global user.email "runespoorengineering@gmail.com"
 
       - name: Use Node.js/20.9.0
         uses: actions/setup-node@v4
         with:
-          registry-url: ${{ secrets.NPM_REGISTRY_URL }}
-          always-auth: true
           node-version: 20.9.0
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -60,22 +49,11 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.ACTIONS_PTA }}
-
-      - name: Git set author name
-        run: git config --global user.name "runespoorengineering"
-
-      - name: Git set author email
-        run: git config --global user.email "runespoorengineering@gmail.com"
 
       - name: Use Node.js/20.9.0
         uses: actions/setup-node@v4
         with:
-          registry-url: ${{ secrets.NPM_REGISTRY_URL }}
-          always-auth: true
           node-version: 20.9.0
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
