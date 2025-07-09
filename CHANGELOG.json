@@ -1,1 +1,10 @@
-[{"version":"1.0.0","type":"major","comment":"Initial implementation.","date":"Tue Jul 08 2025","author":"BorysShulyak","issueLinks":[]}]
+[
+	{
+		"version": "1.0.0",
+		"type": "major",
+		"comment": "Initial implementation.",
+		"date": "Tue Jul 08 2025",
+		"author": "BorysShulyak",
+		"issueLinks": []
+	}
+]

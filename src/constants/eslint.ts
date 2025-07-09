@@ -1,1 +1,1 @@
-export const ESLINT_DISABLE_FILES = '/* eslint-disable */';
+export const ESLINT_DISABLE_FILES = "/* eslint-disable */";

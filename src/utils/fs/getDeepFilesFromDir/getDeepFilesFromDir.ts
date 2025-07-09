@@ -1,5 +1,5 @@
-import fs from 'node:fs';
-import path from 'node:path';
+import fs from "node:fs";
+import path from "node:path";
 
 /**
  * Recursively gets all files from a directory that match any of the provided regex patterns
@@ -9,25 +9,25 @@ import path from 'node:path';
  * @returns Array of file paths that match the provided regex patterns
  */
 export const getDeepFilesFromDir = (
-  dir: string,
-  filesRegex: RegExp[],
-  filesList: string[] = []
+	dir: string,
+	filesRegex: RegExp[],
+	filesList: string[] = [],
 ): string[] => {
-  const files = fs.readdirSync(dir);
+	const files = fs.readdirSync(dir);
 
-  files.forEach((file) => {
-    const filePath = path.join(dir, file);
-    const stat = fs.statSync(filePath);
+	files.forEach((file) => {
+		const filePath = path.join(dir, file);
+		const stat = fs.statSync(filePath);
 
-    if (stat.isDirectory()) {
-      getDeepFilesFromDir(filePath, filesRegex, filesList);
-    } else {
-      const matchesPattern = filesRegex.some((regex) => regex.test(filePath));
-      if (matchesPattern) {
-        filesList.push(filePath);
-      }
-    }
-  });
+		if (stat.isDirectory()) {
+			getDeepFilesFromDir(filePath, filesRegex, filesList);
+		} else {
+			const matchesPattern = filesRegex.some((regex) => regex.test(filePath));
+			if (matchesPattern) {
+				filesList.push(filePath);
+			}
+		}
+	});
 
-  return filesList;
+	return filesList;
 };

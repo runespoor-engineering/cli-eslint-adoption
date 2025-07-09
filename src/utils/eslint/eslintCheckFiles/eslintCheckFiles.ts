@@ -1,6 +1,6 @@
-import { DEFAULT_LINTED_FILE_REGEX } from '../../../constants/regex';
-import { getDeepFilesFromDir } from '../../fs/getDeepFilesFromDir/getDeepFilesFromDir';
-import { eslintCheckFilePaths } from '../eslintCheckFilePaths/eslintCheckFilePaths';
+import { DEFAULT_LINTED_FILE_REGEX } from "../../../constants/regex";
+import { getDeepFilesFromDir } from "../../fs/getDeepFilesFromDir/getDeepFilesFromDir";
+import { eslintCheckFilePaths } from "../eslintCheckFilePaths/eslintCheckFilePaths";
 
 /**
  * Checks if files in a directory contain the eslint-disable comment and throws an error if they do
@@ -10,20 +10,20 @@ import { eslintCheckFilePaths } from '../eslintCheckFilePaths/eslintCheckFilePat
  * @returns {Promise<void>} Promise that resolves when all files have been checked, or rejects if any file contains eslint-disable
  */
 export const eslintCheckFiles = async (
-  {
-    rootDir = './',
-    filesRegex = [DEFAULT_LINTED_FILE_REGEX]
-  }: {
-    rootDir?: string;
-    filesRegex?: RegExp[];
-  } = {
-    rootDir: './',
-    filesRegex: [DEFAULT_LINTED_FILE_REGEX]
-  }
+	{
+		rootDir = "./",
+		filesRegex = [DEFAULT_LINTED_FILE_REGEX],
+	}: {
+		rootDir?: string;
+		filesRegex?: RegExp[];
+	} = {
+		rootDir: "./",
+		filesRegex: [DEFAULT_LINTED_FILE_REGEX],
+	},
 ) => {
-  // Get all files from the directory that match the regex patterns
-  const filePathsToCheck = getDeepFilesFromDir(rootDir, filesRegex);
+	// Get all files from the directory that match the regex patterns
+	const filePathsToCheck = getDeepFilesFromDir(rootDir, filesRegex);
 
-  // Check the files for eslint-disable comments
-  return eslintCheckFilePaths({ filePathsToCheck });
+	// Check the files for eslint-disable comments
+	return eslintCheckFilePaths({ filePathsToCheck });
 };

@@ -1,4 +1,4 @@
-import fs from 'node:fs';
+import fs from "node:fs";
 
 /**
  * Reads a file using a readable stream and returns its contents via callback
@@ -7,21 +7,21 @@ import fs from 'node:fs';
  * @returns {void}
  */
 export const readFileStream = (
-  filePath: string,
-  callback: (err: Error | null, data: string | null) => void
+	filePath: string,
+	callback: (err: Error | null, data: string | null) => void,
 ) => {
-  const chunks: string[] = [];
-  const readStream = fs.createReadStream(filePath, { encoding: 'utf8' });
+	const chunks: string[] = [];
+	const readStream = fs.createReadStream(filePath, { encoding: "utf8" });
 
-  readStream.on('data', (chunk: string) => {
-    chunks.push(chunk);
-  });
+	readStream.on("data", (chunk: string) => {
+		chunks.push(chunk);
+	});
 
-  readStream.on('end', () => {
-    callback(null, chunks.join(''));
-  });
+	readStream.on("end", () => {
+		callback(null, chunks.join(""));
+	});
 
-  readStream.on('error', (error) => {
-    callback(error, null);
-  });
+	readStream.on("error", (error) => {
+		callback(error, null);
+	});
 };

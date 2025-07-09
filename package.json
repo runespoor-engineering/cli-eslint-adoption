@@ -14,7 +14,7 @@
 		"build": "tsup",
 		"test": "vitest run",
 		"lint": "biome lint",
-		"lint:fix": "biome lint --write",
+		"lint:fix": "biome lint --write --unsafe",
 		"lint:ci": "biome ci --formatter-enabled=false --assist-enabled=false --enforce-assist=false",
 		"format": "biome format",
 		"format:fix": "biome format --write",
