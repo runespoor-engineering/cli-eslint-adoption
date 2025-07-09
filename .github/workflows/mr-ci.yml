@@ -28,9 +28,6 @@ jobs:
   build:
     needs: [verify]
     uses: ./.github/workflows/reusable-build.yml
-    with:
-      artifact_name: ${{ vars.ARTIFACT_NAME }}
-      artifact_path: ${{ vars.ARTIFACT_PATH }}
 
   test:
     needs: [build]
