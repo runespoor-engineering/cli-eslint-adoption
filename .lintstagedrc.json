@@ -1,3 +1,5 @@
 {
-  "*.{ts,tsx,js,jsx,cjs,mjs}": "eslint --fix"
+	"*": [
+		"biome check --write --no-errors-on-unmatched --files-ignore-unknown=true"
+	]
 }
