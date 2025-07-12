@@ -1,0 +1,6 @@
+{
+	"comment": "`deps`, `ci`: update`changelog-manager` to version `0.10.0` and adjust `publish` workflow",
+	"type": "patch",
+	"author": "BorysShulyak",
+	"issueLinks": []
+}
