@@ -1,6 +1,0 @@
-{
-	"comment": "`deps`: update `@runespoorstack/changelog-manager` to version `0.10.1` and `@types/node` to version `24.0.13` in package.json and pnpm-lock.yaml",
-	"type": "patch",
-	"author": "BorysShulyak",
-	"issueLinks": []
-}

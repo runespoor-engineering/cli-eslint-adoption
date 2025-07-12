@@ -1,5 +1,12 @@
 [
 	{
+		"version": "1.0.1",
+		"type": "patch",
+		"comment": "`deps`: update `@runespoorstack/changelog-manager` to version `0.10.1` and `@types/node` to version `24.0.13` in package.json and pnpm-lock.yaml",
+		"date": "Sat Jul 12 2025",
+		"author": "BorysShulyak"
+	},
+	{
 		"version": "1.0.0",
 		"type": "major",
 		"comment": "Initial implementation.",
