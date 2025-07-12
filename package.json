@@ -34,7 +34,7 @@
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.1.1",
-		"@runespoorstack/changelog-manager": "0.9.3",
+		"@runespoorstack/changelog-manager": "0.10.0",
 		"@types/node": "20.14.8",
 		"@vitest/coverage-v8": "3.2.4",
 		"@vitest/ui": "3.2.4",
